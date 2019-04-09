@@ -14,4 +14,8 @@ public class ActivityMainViewModel {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void setName(String name){
+        user.setName(name);
+    }
 }

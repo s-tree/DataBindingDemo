@@ -27,6 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         String name = binding.userNameInput.getText().toString();
         user.setName(name);
-        binding.notifyPropertyChanged(BR.model);
+        binding.setModel(viewModel);
     }
 }
