@@ -1,11 +1,10 @@
-package com.jj.testDataBinding;
+package com.jj.testDataBinding.viewmodels;
 
-import android.view.View;
+import com.jj.testDataBinding.data.User;
 
 public class ActivityMainViewModel {
 
     public User user;
-    public View.OnClickListener onClickListener;
 
     public User getUser() {
         return user;

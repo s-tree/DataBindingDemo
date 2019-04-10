@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="model" type="com.jj.testDataBinding.ActivityMainViewModel" />
+        <variable name="model" type="com.jj.testDataBinding.viewmodels.ActivityMainViewModel" />
+        <variable
+            name="mainClick"
+            type="com.jj.testDataBinding.callbacks.MainClickCallback"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".activitys.MainActivity">
 
         <EditText
             android:id="@+id/userNameInput"
@@ -23,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:onClick="@{(v) -> model.onClickListener.onClick(v)}"
+            android:onClick="@{(v) -> mainClick.setNameClick()}"
             app:layout_constraintTop_toBottomOf="@+id/userNameInput"
             android:text="設置暱稱"/>
 
@@ -34,5 +37,15 @@
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/setUserName"
             android:text="@{model.user.name}"/>
+
+        <Button
+            android:id="@+id/startListActivity"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:onClick="@{(v) -> mainClick.startListActivityClick()}"
+            app:layout_constraintTop_toBottomOf="@+id/userName"
+            android:text="打开列表"/>
+
     </android.support.constraint.ConstraintLayout>
 </layout>
