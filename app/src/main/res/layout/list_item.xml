@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable name="user" type="com.jj.testDataBinding.data.User"/>
+
+        <variable
+            name="user"
+            type="com.jj.testDataBinding.data.User" />
+
         <variable
             name="onClickListener"
-            type="android.view.View.OnClickListener"/>
+            type="android.view.View.OnClickListener" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:onClick="@{(v) -> onClickListener.onClick(v)}"
+        android:orientation="horizontal"
         android:tag="@{user}">
 
         <TextView
@@ -21,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@{user.name}"/>
+            android:text="@{user.name}" />
 
         <TextView
             android:id="@+id/userAge"
@@ -29,7 +33,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@{String.valueOf(user.age)}"/>
+            android:text="@{String.valueOf(user.age)}" />
 
     </LinearLayout>
 </layout>
