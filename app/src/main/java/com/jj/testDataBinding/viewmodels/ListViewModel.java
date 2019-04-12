@@ -24,7 +24,6 @@ import java.util.List;
  * 但是如果 MutableLiveData 是一个静态变量，这种机制就无效，所以只能以内部变量存在于 AndroidViewModel 中
  */
 public class ListViewModel extends AndroidViewModel {
-//    private MutableLiveData<List<User>> cacheUsers = new MutableLiveData<>();
     private MediatorLiveData<List<User>> mObservable = new MediatorLiveData<>();
 
     public ListViewModel(Application application) {
