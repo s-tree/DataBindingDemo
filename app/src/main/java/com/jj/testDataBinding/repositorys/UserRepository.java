@@ -2,6 +2,7 @@ package com.jj.testDataBinding.repositorys;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
+import android.arch.lifecycle.MutableLiveData;
 
 import com.jj.testDataBinding.data.User;
 
@@ -23,7 +24,10 @@ public class UserRepository {
         return instance;
     }
 
-    MediatorLiveData<List<User>> userList = new MediatorLiveData<>();
+    /**
+     * Model 只需要用 MutableLive 就可以了， ViewModel 用 MediatorLiveData 监听这个LiveData
+     */
+    MutableLiveData<List<User>> userList = new MutableLiveData<>();
 
     private UserRepository() {
         userList.setValue(initDatas());
