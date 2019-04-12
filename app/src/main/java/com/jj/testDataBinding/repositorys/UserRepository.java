@@ -1,5 +1,8 @@
 package com.jj.testDataBinding.repositorys;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MediatorLiveData;
+
 import com.jj.testDataBinding.data.User;
 
 import java.util.ArrayList;
@@ -7,9 +10,33 @@ import java.util.List;
 
 public class UserRepository {
 
+    private static UserRepository instance;
 
-    public static List<User> getCacheUsers() {
-        return initDatas();
+    public static UserRepository getInstance(){
+        if(instance == null){
+            synchronized (UserRepository.class){
+                if(instance == null){
+                    instance = new UserRepository();
+                }
+            }
+        }
+        return instance;
+    }
+
+    MediatorLiveData<List<User>> userList = new MediatorLiveData<>();
+
+    private UserRepository() {
+        userList.setValue(initDatas());
+    }
+
+    public LiveData<List<User>> getCacheUsers() {
+        return userList;
+    }
+
+    public void addUser(User user){
+        List<User> datas = userList.getValue();
+        datas.add(0,user);
+        userList.setValue(datas);
     }
 
     private static List<User> initDatas(){

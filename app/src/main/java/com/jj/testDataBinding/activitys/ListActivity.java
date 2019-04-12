@@ -39,7 +39,10 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
         layoutManager = new LinearLayoutManager(this);
         listBinding.recyclerView.setLayoutManager(layoutManager);
         listViewModel = ViewModelProviders.of(this).get(ListViewModel.class);
-        listViewModel.getUserData().observeForever(new Observer<List<User>>() {
+        /**
+         * observeForever 无法自动销毁，所以监听用 observe 比较好
+         */
+        listViewModel.getUserData().observe(this,new Observer<List<User>>() {
             @Override
             public void onChanged(@Nullable List<User> users) {
                 listAdapter.setData(users);
