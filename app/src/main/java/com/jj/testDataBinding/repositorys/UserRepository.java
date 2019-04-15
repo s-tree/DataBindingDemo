@@ -1,7 +1,6 @@
 package com.jj.testDataBinding.repositorys;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.jj.testDataBinding.data.User;

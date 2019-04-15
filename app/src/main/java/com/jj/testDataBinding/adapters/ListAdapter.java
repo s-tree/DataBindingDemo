@@ -26,7 +26,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder> {
         diffCallback = new ListAdapterDiffCallback();
     }
 
-    public void setData(final List<User> tempListSize){
+    public void setData(List<User> tempListSize){
         if(tempListSize == null || tempListSize.isEmpty()){
             userList.clear();
             notifyDataSetChanged();
