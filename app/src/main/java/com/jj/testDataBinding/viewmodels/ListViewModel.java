@@ -13,8 +13,6 @@ import com.jj.testDataBinding.repositorys.UserRepository;
 import java.util.List;
 
 /**
- * AndroidViewModel 会和Activity 绑定生命周期
- * 监听到Activity 销毁时会同时销毁自身
  *
  * MediatorLiveData 继承自 LiveData
  * 可以被观察，在被销毁时会自动销毁观察者
