@@ -8,6 +8,8 @@
         <variable
             name="mainClick"
             type="com.jj.testDataBinding.callbacks.MainClickCallback"/>
+        <import type="com.jj.testDataBinding.bindings.BindAdapters"/>
+        <import type="com.jj.testDataBinding.R"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -36,7 +38,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/setUserName"
-            android:text="@{model.user.name}"/>
+            android:text="@{BindAdapters.showName(R.string.app_name,model.user.name)}"/>
 
         <Button
             android:id="@+id/startListActivity"

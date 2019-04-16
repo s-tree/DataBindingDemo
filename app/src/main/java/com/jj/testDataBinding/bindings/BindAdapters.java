@@ -20,4 +20,8 @@ public class BindAdapters {
     public static void showBackground(View view,boolean isShowBg){
         view.setBackgroundColor(isShowBg ? Color.GREEN : Color.WHITE);
     }
+
+    public static String showName(int resource,String name){
+        return "from bind name = " + name;
+    }
 }
